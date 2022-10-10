@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 02</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <script src="../js/movimientosRobot.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+  <img class="elementos" id="fondo" src="../img/pagina02/fondo.png" data-posX="0" data-posY="0" alt="">
+
+  <img class="elementos" id="menu" src="../img/pagina02/menu.png" data-posX="87" data-posY="334" alt="">
+  <img class="elementos" id="bocina" src="../img/pagina02/bocina.png" data-posX="87" data-posY="425" alt="">
+  <img class="elementos" id="recargar" src="../img/pagina02/recargar.png" data-posX="520" data-posY="331" alt="">
+  <img class="elementos" id="navegacion" src="../img/pagina02/navegacion.png" data-posX="509" data-posY="425" alt="">
+ 
+  <img class="elementos" id="info_menu" src="../img/pagina02/info_menu.png" data-posX="150" data-posY="333" alt="">
+  <img class="elementos" id="info_bocina" src="../img/pagina02/info_bocina.png" data-posX="150" data-posY="429" alt="">
+  <img class="elementos" id="info_recargar" src="../img/pagina02/info_recargar.png" data-posX="580" data-posY="330" alt="">
+  <img class="elementos" id="info_navegacion" src="../img/pagina02/info_navegacion.png" data-posX="580" data-posY="425" alt="">
+  
+
+    <!-- Script de la página -->
+    <script>
+
+        // Variable--------------------------------s--------------------
+        let aplicacion = parent;
+
+        const fondo = $('#fondo');
+        const btnMenu = $('#menu');
+        const btnRecargar = $('#recargar');
+        const btnBocina = $('#bocina');
+        const btnNavegacion = $('#navegacion');
+            
+        const info_menu = $('#info_menu');
+        const info_recargar = $('#info_recargar');
+        const info_bocina = $('#info_bocina');
+        const info_navegacion = $('#info_navegacion');
+
+        // Audios------------------------------------------------------
+        const audio = [
+          new Audio('../audios/Prosa_M1_Seguridad_02_1.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.activarBotonAtras();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], finalPagina, 1);
+            animacionEntrada(fondo, 'izquierda-derecha', 1, 1);
+            animacionEntrada(btnMenu, 'izquierda-derecha', 1, 6);
+            animacionEntrada(info_menu, 'izquierda-derecha', 1, 6.5);
+
+            animacionEntrada(btnRecargar, 'izquierda-derecha', 1, 10);
+            animacionEntrada(info_recargar, 'izquierda-derecha', 1, 10.5);
+
+            animacionEntrada(btnBocina, 'izquierda-derecha', 1, 14);
+            animacionEntrada(info_bocina, 'izquierda-derecha', 1, 14.5);
+
+            animacionEntrada(btnNavegacion, 'izquierda-derecha', 1, 17);
+            animacionEntrada(info_navegacion, 'izquierda-derecha', 1, 17.5);
+  
+        }
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>
