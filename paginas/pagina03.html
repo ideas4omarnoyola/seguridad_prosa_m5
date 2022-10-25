@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 03</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <script src="../js/movimientosRobot.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+    <img class="elementos" id="subtema" src="../img/pagina03/subtema.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt01" src="../img/pagina03/texto01.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt02" src="../img/pagina03/texto02.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt03" src="../img/pagina03/texto03.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt04" src="../img/pagina03/texto04.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt05" src="../img/pagina03/texto05.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt06" src="../img/pagina03/texto06.png" data-posX="0" data-posY="0"/>
+    <img class="elementos" id="txt07" src="../img/pagina03/texto07.png" data-posX="0" data-posY="0"/>
+    
+    <!-- Script de la página -->
+    <script>
+
+        // Variable----------------------------------------------------
+        let aplicacion = parent;
+
+        const subtema = $('#subtema');
+        const txt01 = $('#txt01');
+        const txt02 = $('#txt02');
+        const txt03 = $('#txt03');
+        const txt04 = $('#txt04');
+        const txt05 = $('#txt05');
+        const txt06 = $('#txt06');
+        const txt07 = $('#txt07');
+        
+
+        // Audios------------------------------------------------------
+        const audio = [
+            new Audio('../audios/Prosa_M5_Seguridad_03_1.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_2.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_3.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_4.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_5.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_6.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_7.mp3'),
+            new Audio('../audios/Prosa_M5_Seguridad_03_8.mp3'),
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], locutaTexto1, 1);
+            animacionEntrada(subtema, 'default', 1, 1);
+        }
+
+        function locutaTexto1(){
+            aplicacion.reproducirAudio(audio[1], locutaTexto2, 1);
+            animacionEntrada(txt01, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto2(){
+            aplicacion.reproducirAudio(audio[2], locutaTexto3, 1);
+            animacionEntrada(txt02, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto3(){
+            aplicacion.reproducirAudio(audio[3], locutaTexto4, 1);
+            animacionEntrada(txt03, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto4(){
+            aplicacion.reproducirAudio(audio[4], locutaTexto5, 1);
+            animacionEntrada(txt04, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto5(){
+            aplicacion.reproducirAudio(audio[5], locutaTexto6, 1);
+            animacionEntrada(txt05, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto6(){
+            aplicacion.reproducirAudio(audio[6], locutaTexto7, 1);
+            animacionEntrada(txt06, 'derecha-izquierda', 1, 1);
+        }
+        function locutaTexto7(){
+            aplicacion.reproducirAudio(audio[7], finalPagina, 1);
+            animacionEntrada(txt07, 'derecha-izquierda', 1, 1);
+        }
+
+        function finalPagina(){
+            aplicacion.terminaPantalla();
+        }
+
+
+
+    </script>
+</body>
+</html>
