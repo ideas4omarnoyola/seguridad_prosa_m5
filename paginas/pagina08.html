@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 02</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Librerias -->
+    <script src="../js/librerias/jquery.min.js"></script>
+    <script src="../js/librerias/gsap.min.js"></script>
+
+    <!-- Script de animaciones -->
+    <script src="../js/animaciones.js"></script>
+    <script src="../js/movimientosRobot.js"></script>
+    <!-- Scripts posicionar elementos -->
+    <script src="../js/redimensionarElementos.js"></script>
+    <script src="../js/posicionar.js"></script>
+
+</head>
+<body class="pagina">
+  <img class="elementos" id="titulo" src="../img/pagina08/titulo.png" data-posX="0" data-posY="0" alt="">
+  <img class="elementos" id="img01"  src="../img/pagina08/img01.png" data-posX="0" data-posY="0" alt="">
+  <img class="elementos" id="img02"  src="../img/pagina08/img02.png" data-posX="0" data-posY="0" alt="">
+  <img class="elementos" id="img03"  src="../img/pagina08/img03.png" data-posX="0" data-posY="0" alt="">
+  <!-- <img class="elementos" id="img04"  src="../img/pagina08/img04.png" data-posX="0" data-posY="0" alt=""> -->
+
+ 
+  
+
+    <!-- Script de la página -->
+    <script>
+
+        // Variable--------------------------------s--------------------
+        let aplicacion = parent;
+
+        const titulo = $('#titulo');       
+        const img01 = $('#img01');
+        const img02 = $('#img02');
+        const img03 = $('#img03');
+        const img04 = $('#img04');          
+             
+             
+        // Audios------------------------------------------------------
+        const audio = [
+          new Audio('../audios/audio0.mp3'),         
+          new Audio('../audios/Prosa_M5_Seguridad_08_1.mp3'),         
+          new Audio('../audios/Prosa_M5_Seguridad_08_2.mp3'),         
+          new Audio('../audios/Prosa_M5_Seguridad_08_3.mp3'),         
+                   
+        ]
+
+        // Al cargarse la página
+        $(window).on("load", function(){
+            redimensionarElementos();
+            aplicacion.activarBotonAtras();
+            aplicacion.cargando(iniciarContenido);
+        });
+
+        function iniciarContenido(){
+            aplicacion.reproducirAudio(audio[0], terminaAudio0, 1);
+            animacionEntrada(titulo, 'izquierda-derecha', 1, 0);          
+              
+        }
+         function terminaAudio0(){
+           aplicacion.reproducirAudio(audio[1], terminaAudio1, 1);
+            animacionEntrada(img01, 'izquierda-derecha', 1, 1);
+            
+        }
+        function terminaAudio1(){
+        aplicacion.reproducirAudio(audio[2], terminaAudio2, 1);
+        animacionEntrada(img02, 'izquierda-derecha', 1, 1);
+           
+        }
+        function terminaAudio2(){
+           aplicacion.reproducirAudio(audio[3], terminaAudio3, 1);
+            animacionEntrada(img03, 'izquierda-derecha', 1, 2);
+        }
+        function terminaAudio3(){
+        aplicacion.reproducirAudio(audio[4], terminaAudio4, 1);
+         // animacionEntrada(img04, 'izquierda-derecha', 1, 2);
+        }
+        function terminaAudio4(){
+        aplicacion.reproducirAudio(audio[5], terminaAudio5, 1);
+        }
+        function terminaAudio5(){
+          aplicacion.reproducirAudio(audio[6], finalPagina, 1);   
+        }
+        
+
+
+
+
+        function finalPagina(){
+            //pararHablar();
+            aplicacion.terminaPantalla();
+        }
+
+    </script>
+</body>
+</html>
