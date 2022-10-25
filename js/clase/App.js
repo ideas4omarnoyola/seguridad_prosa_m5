@@ -28,11 +28,13 @@ function siguientePagina(){
             paginasVistas++;
         }
 
+        noPagina++;
+
         if(noPagina == totalPaginas - 1){
             statusCurso('completed');
         }
 
-        noPagina++;
+        
         detenerAudios();
         actualizarTemario();
         desactivarBotonAdelante();
@@ -110,7 +112,7 @@ function activarBotonAdelante(){
     btnAdelante.removeClass('desactivado');
     btnAdelante.addClass('activado');
     setTimeout(()=>{
-        parpadear(btnAdelante);
+        parpadear(btnAdelante, .6, 0, .2);
     }, 300);
 }
 
