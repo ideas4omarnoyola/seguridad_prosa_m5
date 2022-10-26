@@ -383,7 +383,7 @@
         });
 
         function iniciarContenido(){
-            aplicacion.reproducirAudio(audio[0], activarBoton, 1);
+            aplicacion.reproducirAudio(audio[0], finalPagina, 1);
             animacionEntrada(titulo, 'izquierda-derecha', 1, 0);
             animacionEntrada(img01, 'izquierda-derecha', 1, 1);
             animacionEntrada(img02, 'izquierda-derecha', 1, 1);
@@ -403,7 +403,7 @@
             if(link.css('cursor') == 'pointer'){
             dejarParpadear(link);
             animacionEntrada(img03, 'izquierda-derecha', 1, 0);
-             aplicacion.reproducirAudio(audio[1], termianatip, 0);
+             aplicacion.reproducirAudio(audio[1], finalPagina, 0);
             function termianatip(){
               parpadear(cerrar);
             }
