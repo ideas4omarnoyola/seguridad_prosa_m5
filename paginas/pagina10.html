@@ -335,7 +335,7 @@
     </svg>      
     <img class="elementos" id="instrucciones" src="../img/pagina10/instrucciones.png" data-posX="0" data-posY="0"/>
     
-    <img id="boton" class="elementos" src="../img/pagina10/boton.png" data-posX="634" data-posY="354"/>
+    <img id="boton" class="elementos" src="../img/pagina10/boton.png" data-posX="537" data-posY="354"/>
 
     
     <!-- Script de la página -->
@@ -375,18 +375,8 @@
         }
 
         function dialogo(){
-            aplicacion.reproducirAudio(audio[1], dialogo2, 1);
+            aplicacion.reproducirAudio(audio[1], activarBoton, 1);
             animacionEntrada(d1, 'izquierda-derecha', 1, 1);
-            pausarHablar();
-
-            setTimeout(()=>{
-                reanudarHablar();
-            }, 1000);
-        }
-
-        function dialogo2(){
-            aplicacion.reproducirAudio(audio[2], activarBoton, 1);
-            animacionEntrada(instrucciones, 'default', 1, 1);
             pausarHablar();
 
             setTimeout(()=>{
@@ -402,6 +392,7 @@
         boton.click(function(){
             if(boton.css('cursor') == 'pointer'){
                 window.open('../infografia/info_PROSA_SEGURIDAD_M5_v2.pdf', '_blank');
+                dejarParpadear(boton);
                 aplicacion.terminaPantalla();
             }
         });
