@@ -399,21 +399,18 @@
 
     <img class="elementos" id="btn01" src="../img/pagina02/btn01.png" data-posX="236" data-posY="376"/>
     <img class="elementos" id="btn02" src="../img/pagina02/btn02.png" data-posX="385" data-posY="372"/>
-    <img class="elementos" id="btn03" src="../img/pagina02/btn03.png" data-posX="483" data-posY="377"/>
-    <img class="elementos" id="btn04" src="../img/pagina02/btn04.png" data-posX="680" data-posY="372"/>
-    <img class="elementos" id="btn05" src="../img/pagina02/btn05.png" data-posX="827" data-posY="374"/>
+    <img class="elementos" id="btn03" src="../img/pagina02/btn03.png" data-posX="648" data-posY="372"/>
+    <img class="elementos" id="btn04" src="../img/pagina02/btn04.png" data-posX="827" data-posY="374"/>
 
     <img class="elementos" id="popup01" src="../img/pagina02/popup01.png" data-posX="0" data-posY="0"/>
     <img class="elementos" id="popup02" src="../img/pagina02/popup02.png" data-posX="0" data-posY="0"/>
     <img class="elementos" id="popup03" src="../img/pagina02/popup03.png" data-posX="0" data-posY="0"/>
     <img class="elementos" id="popup04" src="../img/pagina02/popup04.png" data-posX="0" data-posY="0"/>
-    <img class="elementos" id="popup05" src="../img/pagina02/popup05.png" data-posX="0" data-posY="0"/>
 
     <img class="elementos" id="btnCerrar01" src="../img/pagina02/btnCerrar01.png" data-posX="971" data-posY="129"/>
     <img class="elementos" id="btnCerrar02" src="../img/pagina02/btnCerrar02.png" data-posX="971" data-posY="129"/>
     <img class="elementos" id="btnCerrar03" src="../img/pagina02/btnCerrar03.png" data-posX="971" data-posY="129"/>
     <img class="elementos" id="btnCerrar04" src="../img/pagina02/btnCerrar04.png" data-posX="971" data-posY="129"/>
-    <img class="elementos" id="btnCerrar05" src="../img/pagina02/btnCerrar05.png" data-posX="971" data-posY="129"/>
 
     
     <!-- Script de la página -->
@@ -431,19 +428,16 @@
         const btn02 = $('#btn02');
         const btn03 = $('#btn03');
         const btn04 = $('#btn04');
-        const btn05 = $('#btn05');
 
         const popup01 = $('#popup01');
         const popup02 = $('#popup02');
         const popup03 = $('#popup03');
         const popup04 = $('#popup04');
-        const popup05 = $('#popup05');
 
         const btnCerrar01 = $('#btnCerrar01');
         const btnCerrar02 = $('#btnCerrar02');
         const btnCerrar03 = $('#btnCerrar03');
         const btnCerrar04 = $('#btnCerrar04');
-        const btnCerrar05 = $('#btnCerrar05');
 
         // Audios------------------------------------------------------
         const audio = [
@@ -452,7 +446,7 @@
             new Audio('../audios/Prosa_M5_Seguridad_02_3.mp3'),
             new Audio('../audios/Prosa_M5_Seguridad_02_4.mp3'),
             new Audio('../audios/Prosa_M5_Seguridad_02_5.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_02_6.mp3'),
+            // new Audio('../audios/Prosa_M5_Seguridad_02_6.mp3'),
             new Audio('../audios/Prosa_M5_Seguridad_02_7.mp3'),
             new Audio('../audios/Prosa_M5_Seguridad_02_8.mp3'),
         ]
@@ -494,7 +488,6 @@
             animacionEntrada(btn02, 'arriba-abajo', 1, 2);
             animacionEntrada(btn03, 'arriba-abajo', 1, 2.5);
             animacionEntrada(btn04, 'arriba-abajo', 1, 3);
-            animacionEntrada(btn05, 'arriba-abajo', 1, 3.5);
 
             setTimeout(() => {
                 reanudarHablar();
@@ -525,16 +518,6 @@
         }
         function cerrarPopup04(){
             parpadear(btnCerrar04);
-        }
-        function clickBtn05(){
-            parpadear(btn05);
-        }
-        function cerrarPopup05(){
-            parpadear(btnCerrar05);
-        }
-
-        function finalPagina(){
-            aplicacion.terminaPantalla();
         }
 
         btn01.click(function(){
@@ -609,26 +592,7 @@
                 animacionSalida(btnCerrar04, 'default', 1, 1);
 
                 setTimeout(() => {
-                    clickBtn05();
-                }, 1000);
-            }
-        });
-        btn05.click(function(){
-            if(btn05.css('cursor') == 'pointer'){
-                aplicacion.reproducirAudio(audio[7], cerrarPopup05, 1);
-                dejarParpadear(btn05, true);
-                animacionEntrada(popup05, 'default', 1, 1);
-            }
-        });
-
-        btnCerrar05.click(function(){
-            if(btnCerrar05.css('cursor') == 'pointer'){
-                dejarParpadear(btnCerrar05);
-                animacionSalida(popup05, 'default', 1, 1);
-                animacionSalida(btnCerrar05, 'default', 1, 1);
-
-                setTimeout(() => {
-                    finalPagina();
+                    aplicacion.terminaPantalla();
                 }, 1000);
             }
         });
