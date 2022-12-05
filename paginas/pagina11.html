@@ -361,15 +361,15 @@
             new Audio('../audios/Prosa_M5_Seguridad_11_2.mp3'),
         ]
         
-        const audioTablas = [
-            new Audio('../audios/Prosa_M5_Seguridad_11_3.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_4.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_5.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_6.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_7.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_8.mp3'),
-            new Audio('../audios/Prosa_M5_Seguridad_11_9.mp3'),
-        ]
+        // const audioTablas = [
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_3.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_4.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_5.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_6.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_7.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_8.mp3'),
+        //     new Audio('../audios/Prosa_M5_Seguridad_11_9.mp3'),
+        // ]
 
         // Al cargarse la página
         $(window).on("load", function(){
@@ -393,7 +393,7 @@
         }
 
         function dialogo(){  
-            aplicacion.reproducirAudio(audio[1], tablas, 1);
+            aplicacion.reproducirAudio(audio[1], final, 1);
             pausarHablar();
 
             setTimeout(()=>{
@@ -414,6 +414,10 @@
             else{
               aplicacion.terminaPantalla();
             }
+        }
+
+        function final(){
+            aplicacion.terminaPantalla();
         }
 
     </script>
